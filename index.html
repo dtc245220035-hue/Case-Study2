@@ -3,114 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài tập phối màu đơn tông</title>
+    <title>CodeGym Career - Material Design</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css">
+    
+    <!-- Custom CSS -->
     <style>
-        /* BƯỚC 6: Giữ nguyên màu chữ là màu đen cho toàn bộ trang */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            color: #000000; 
-        }
-
-        /* BƯỚC 2: Màu nền chuyển thành màu bậc 4 (#00BFF2) */
         body {
-            background-color: #00BFF2;
-            padding: 20px;
+            font-family: 'Roboto', sans-serif;
+            background-color: #fafafa;
         }
-
-        /* Container giới hạn chiều rộng */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* --- HEADER & LOGO --- */
-        /* BƯỚC 1: Sử dụng màu xanh logo (#00ADEE) làm màu bậc 1 */
-        header {
-            background-color: #00ADEE;
-            padding: 20px;
+        /* Màu chủ đạo của CodeGym (Đỏ/Cam) */
+        .bg-codegym { background-color: #e60023 !important; }
+        .text-codegym { color: #e60023 !important; }
+        
+        /* Tùy chỉnh Navbar cho giống Material */
+        .navbar { box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16); }
+        
+        /* Hero Section với ảnh nền mờ */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
             text-align: center;
-            border-radius: 8px;
-            margin-bottom: 20px;
         }
-        header h1 {
-            color: #ffffff; /* Chữ trắng trên nền đậm để nổi bật */
-            font-size: 2rem;
+        
+        /* Card Material Design */
+        .card {
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
         }
-
-        /* --- PHẦN ON SALE / PREVIEW --- */
-        .sale-banner {
-            /* BƯỚC 3: Chuyển màu nền đỏ thành tông màu bậc 1 hoặc bậc 2 */
-            background-color: #00B2EF; 
-            padding: 15px;
-            text-align: center;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border: 2px solid #00ADEE;
+        .card:hover {
+            transform: translateY(-5px);
         }
-
-        /* --- PHẦN NỘI DUNG CHÍNH --- */
-        .main-content {
-            /* BƯỚC 4: Màu nền hồng chuyển thành màu bậc 7 (#8DD7F7) */
-            background-color: #8DD7F7;
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            min-height: 300px;
+        
+        /* Icon tròn trong thẻ tính năng */
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            background-color: #ffebee;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
         }
-        .main-content h2 {
-            margin-bottom: 15px;
-            border-bottom: 2px solid #000;
-            padding-bottom: 10px;
+        .icon-circle i {
+            font-size: 30px;
+            color: #e60023;
         }
 
-        /* --- FOOTER --- */
-        footer {
-            /* BƯỚC 5: Thay đổi màu nền thành màu bậc 9 (#C6E9FA) */
-            background-color: #C6E9FA;
-            padding: 20px;
-            text-align: center;
-            border-radius: 8px;
-            border-top: 4px solid #00ADEE;
-        }
-
-        /* Responsive cho mobile */
-        @media (max-width: 768px) {
-            body { padding: 10px; }
-            header h1 { font-size: 1.5rem; }
+        /* Testimonial */
+        .testimonial-card .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: -50px;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- HEADER: Màu bậc 1 -->
-        <header>
-            <h1>My Website Logo</h1>
-        </header>
-
-        <!-- ON SALE / PREVIEW: Màu bậc 2 -->
-        <div class="sale-banner">
-            🔥 ON SALE - Giảm giá 50% hôm nay!
+    <!-- 1. NAVBAR (Material Design) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-codegym fixed-top">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="#"><i class="fas fa-code mr-2"></i>CodeGym Career</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a class="nav-link" href="#">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Lợi ích</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#courses">Khóa học</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Học viên</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
 
-        <!-- NỘI DUNG CHÍNH: Màu bậc 7 -->
-        <main class="main-content">
-            <h2>Nội dung chính của trang</h2>
-            <p>Đây là khu vực nội dung đã được phối lại màu sắc theo bảng màu đơn tông (Monochromatic). Màu nền là màu bậc 7 (#8DD7F7) tạo cảm giác nhẹ nhàng, dễ chịu. Màu chữ được giữ nguyên là màu đen để đảm bảo độ tương phản tốt nhất cho người đọc.</p>
-            <br>
-            <p>Toàn bộ trang web sử dụng các cấp độ màu khác nhau từ màu gốc #00ADEE, giúp tổng thể hài hòa và chuyên nghiệp hơn.</p>
-        </main>
+    <!-- 2. HERO SECTION -->
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="display-4 font-weight-bold mb-4 animated fadeInDown">Bứt Phá Sự Nghiệp IT Cùng CodeGym</h1>
+            <p class="lead mb-5 animated fadeInUp">Chương trình đào tạo lập trình viên thực chiến, cam kết giới thiệu việc làm sau khi tốt nghiệp.</p>
+            <a href="#contact" class="btn btn-codegym btn-lg bg-codegym text-white font-weight-bold rounded-pill px-5 py-3 z-depth-2">
+                Nhận Tư Vấn Ngay <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </header>
 
-        <!-- FOOTER: Màu bậc 9 -->
-        <footer>
-            <p>&copy; 2026 Bản quyền thuộc về My Website.</p>
-        </footer>
-    </div>
+    <!-- 3. FEATURES SECTION (Lợi ích) -->
+    <section id="features" class="py-5">
+        <div class="container py-5">
+            <h2 class="text-center font-weight-bold mb-5 text-dark">Tại Sao Chọn CodeGym?</h2>
+            <div class="row text-center">
+                <!-- Card 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 hoverable z-depth-1">
+                        <div class="card-body py-5">
+                            <div class="icon-circle">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h4 class="font-weight-bold mb-3">100% Thực Hành</h4>
+                            <p class="text-muted">Học qua dự án thực tế, làm việc trực tiếp với mã nguồn thay vì lý thuyết suông.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 hoverable z-depth-1">
+                        <div class="card-body py-5">
+                            <div class="icon-circle">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h4 class="font-weight-bold mb-3">Cam Kết Việc Làm</h4>
+                            <p class="text-muted">Hỗ trợ kết nối doanh nghiệp, đảm bảo đầu ra có việc làm đúng chuyên ngành.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 hoverable z-depth-1">
+                        <div class="card-body py-5">
+                            <div class="icon-circle">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4 class="font-weight-bold mb-3">Mentor 1-1</h4>
+                            <p class="text-muted">Đội ngũ giảng viên giàu kinh nghiệm trực tiếp hướng dẫn và gỡ lỗi cùng bạn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- 4. CTA SECTION (Kêu gọi hành động) -->
+    <section class="py-5 bg-codegym text-white text-center z-depth-1">
+        <div class="container py-4">
+            <h2 class="font-weight-bold mb-3">Sẵn sàng trở thành Lập trình viên?</h2>
+            <p class="lead mb-4">Đăng ký ngay hôm nay để nhận ưu đãi học phí lên đến 20%.</p>
+            <a href="#contact" class="btn btn-light text-codegym font-weight-bold rounded-pill px-5 py-3 z-depth-2">
+                Đăng Ký Học Thử
+            </a>
+        </div>
+    </section>
+
+    <!-- 5. TESTIMONIALS (Đánh giá học viên) -->
+    <section id="testimonials" class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="text-center font-weight-bold mb-5 text-dark">Học Viên Nói Gì Về CodeGym?</h2>
+            <div class="row mt-5">
+                <!-- Testimonial 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card testimonial-card hoverable text-center pt-5 z-depth-1">
+                        <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="avatar mx-auto white" alt="Học viên 1">
+                        <div class="card-body">
+                            <h5 class="font-weight-bold mt-3">Nguyễn Văn A</h5>
+                            <p class="text-muted small">Java Backend Developer</p>
+                            <p class="card-text font-italic">"Nhờ CodeGym mà mình từ một người tay ngang đã có thể tự tin apply vào các công ty công nghệ lớn."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card testimonial-card hoverable text-center pt-5 z-depth-1">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="avatar mx-auto white" alt="Học viên 2">
+                        <div class="card-body">
+                            <h5 class="font-weight-bold mt-3">Trần Thị B</h5>
+                            <p class="text-muted small">Frontend Developer</p>
+                            <p class="card-text font-italic">"Lộ trình học rõ ràng, thầy cô nhiệt tình. Môi trường học tập cực kỳ năng động và thực tế."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card testimonial-card hoverable text-center pt-5 z-depth-1">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="avatar mx-auto white" alt="Học viên 3">
+                        <div class="card-body">
+                            <h5 class="font-weight-bold mt-3">Lê Hoàng C</h5>
+                            <p class="text-muted small">Fullstack Developer</p>
+                            <p class="card-text font-italic">"Khóa học rất thực chiến. Ngay khi tốt nghiệp mình đã nhận được offer từ 2 công ty."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="page-footer font-small bg-dark text-white pt-5">
+        <div class="container text-center text-md-left">
+            <div class="row">
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <h5 class="text-uppercase font-weight-bold"><i class="fas fa-code mr-2"></i>CodeGym Career</h5>
+                    <p>Hệ thống đào tạo lập trình viên thực chiến hàng đầu Việt Nam.</p>
+                </div>
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5 class="text-uppercase font-weight-bold">Liên kết</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Về chúng tôi</a></li>
+                        <li><a href="#" class="text-white-50">Khóa học</a></li>
+                        <li><a href="#" class="text-white-50">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5 class="text-uppercase font-weight-bold">Liên hệ</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone mr-2"></i> 024 6666 8888</li>
+                        <li><i class="fas fa-envelope mr-2"></i> contact@codegym.vn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright text-center py-3 bg-black mt-4">
+            © 2026 Bản quyền thuộc về CodeGym.
+        </div>
+    </footer>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 </body>
 </html>
